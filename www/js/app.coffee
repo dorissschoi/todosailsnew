@@ -59,7 +59,7 @@ module
 	
 	# My task list #
 	$stateProvider.state 'app.list',
-		url: "/todo/weekList"
+		url: "/todo/weekList?ownedBy"
 		cache: false
 		views:
 			'menuContent':
@@ -68,26 +68,14 @@ module
 		resolve:
 			ownedBy: ($location) ->
 				return $location.search().ownedBy 
-					
+			test: ($stateParams) ->
+				return 'me'
+						
 			cliModel: 'model'	
-			collection: (cliModel, ownedBy) ->
+			collection: (cliModel, ownedBy, test) ->
 				ret = new cliModel.TodoList()
-				ret.$fetch({params: {ownedBy: ownedBy}})
+				ret.$fetch({params: {ownedBy: test}})
 
-	# All task list #
-	$stateProvider.state 'app.alllist',
-		url: "/todo/weekList"
-		cache: false
-		views:
-			'menuContent':
-				templateUrl: "templates/todo/list.html"
-				controller: 'ListCtrl'
-		resolve:
-			cliModel: 'model'	
-			collection: (cliModel) ->
-				ret = new cliModel.TodoList()
-				ret.$fetch()
-				
 	# My todo completed
 	$stateProvider.state 'app.completedList',
 		url: "/todo/completedList"
@@ -98,6 +86,7 @@ module
 				controller: 'CompletedListCtrl'									
 	
 	$urlRouterProvider.otherwise('/todo/weekList?ownedBy=me')				
+	
 	
 	
 	
