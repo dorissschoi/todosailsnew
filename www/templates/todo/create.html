@@ -1,54 +1,35 @@
 <ion-view>
-	<div ng-controller="TodoCtrl">
-	<form name="myForm"  class="my-form" novalidate>
+	
+	
 	<ion-header-bar class="item-input-inset" align-title="left">
-	    <button class="button ion-close-round" ui-sref="app.weekList"></button>
+	    <button class="button ion-close-round" ui-sref="app.list"></button>
 	    <h1 class="title" style="text-align:center">{{'addtask' | translate}}</h1>
-	    <div class="buttons" ng-init="isDisabled = false">
-			
-			<button class="button button-clear button-positive" 
-    		ng-click="controller.add()"
-    		ng-disabled="myForm.taskname.$error.required">Save</button>	        
-	    </div>
+		<button class="button button-clear button-positive" ng-click="save()">OK</button>	        
+	
 	</ion-header-bar>
 	
 	<ion-content>
 
 		<div class="list">
 			<label class="item item-input">
-				<input type="text" placeholder="{{'Project' | translate}}" name="Project" ng-model="todo.project" >
+				<input type="text" placeholder="{{'Project' | translate}}" name="Project" ng-model="model.project" >
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="{{'TaskName' | translate}}" name="taskname" ng-model="todo.task" required>
+				<input type="text" placeholder="{{'TaskName' | translate}}" name="taskname" ng-model="model.task" required>
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="{{'Notes' | translate}}" name="notes" ng-model="todo.notes" >
+				<input type="text" placeholder="{{'Notes' | translate}}" name="notes" ng-model="model.notes" >
 			</label>
 			<label class="item item-input">
-				<input type="text" placeholder="{{'Location' | translate}}" name="location" ng-model="todo.location" >
+				<input type="text" placeholder="{{'Location' | translate}}" name="location" ng-model="model.location" >
 			</label>
-			
-			<div class="row">
-				<div class="col col-50"><span class="input-label">{{'Date' | translate}}</span>
-					<ionic-datepicker input-obj="datepickerObjectEnd">
-		  			<button class="button button-block button-positive"> 
-		  			{{datepickerObjectEnd.date | date:'dd - MMMM - yyyy'}}</button>
-					</ionic-datepicker>		
-				</div>
-				<div class="col"><span class="input-label">{{'Time' | translate}}</span>
-
-					<ionic-timepicker input-obj="timePickerEndObject">
-					  <button class="button button-block button-positive overflowShow">
-    					<standard-time-meridian etime='timePickerEndObject.inputEpochTime'></standard-time-meridian>
-					  </button>
-					</ionic-timepicker>
-
-				</div>
-			</div>
+			<label class="item item-input">
+				{{'Date' | translate}}: <input type="datetime-local" name="dateEnd" ng-model="model.dateEnd" >
+			</label>
 			
 		</div>
 		
 	</ion-content>
-	</form>
-	</div>
+	
+	
 </ion-view>

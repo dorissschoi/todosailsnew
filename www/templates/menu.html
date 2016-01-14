@@ -13,18 +13,10 @@
         <ion-item nav-clear menu-close ui-sref="app.createTodo">
           {{'addtask' | translate}}
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.weekList">
-          {{'next7dlist' | translate}}
-        </ion-item>
         <ion-item nav-clear menu-close ui-sref="app.list">
           My Task list
         </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.alllist">
-          All Task list
-        </ion-item>
-        <ion-item nav-clear menu-close ui-sref="app.completedList">
-          {{'compledlist'| translate}} 
-        </ion-item>    
+
 
 	    <ion-item nav-clear menu-close ng-if="env.isNative()" ng-click="navigator.app.exitApp()">
           Exit
