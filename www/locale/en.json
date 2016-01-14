@@ -1,6 +1,7 @@
 {
     "next7dlist":		"7 days task",
     "compledlist":		"Completed list",
+    "tasklist":			"Task list",
     "addtask":			"Create task",
     "edittask":			"Edit task",
     "readtask":			"Read task",

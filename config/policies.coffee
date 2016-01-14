@@ -4,6 +4,7 @@ module.exports =
 		TodoController:
 			'*':	false
 			find:	['isAuth', 'resolveMe']	
+			findOne:['isAuth', 'isOwnedBy']			
 			create: ['isAuth', 'setCreatedBy' , 'setOwner']
-			update: ['isAuth', 'isOwnerOrCreatedBy']
-			destroy: ['isAuth', 'isCreatedBy']
+			update: ['isAuth', 'isOwnedBy']
+			destroy: ['isAuth', 'isOwnedBy']
