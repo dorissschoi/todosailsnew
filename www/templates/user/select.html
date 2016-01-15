@@ -16,9 +16,11 @@
 	
 	      <ion-content>
 	        <div class="list">
+        
+	        
 	          <!-- Multi select -->
 	          <ion-toggle
-	                      ng-repeat="item in model.models | UserSearchFilter:searchText | orderBy:['name.given', 'name.middle', 'name.family', 'email']"
+	                      ng-repeat="item in model.models | UserSearchFilter:searchText | orderBy:['email']"
 	                      ng-if="multiple"
 	                      ng-model="item.selected"
 	                      ng-change="select(item)"
@@ -30,9 +32,11 @@
 	          <label
 	                 ng-repeat="item in model.models"
 	                 ng-if="!multiple"
-	                 ng-click="select(item)"
+	                 ng-click="select(item); $emit('selectuser',item)"
 	                 class="item item-text-wrap">
-	            {{item[label()]}}
+	            
+	            
+	            {{item.username}}
 	          </label>
 	        </div>
 	        <ion-infinite-scroll ng-if="model.state.skip < model.state.count" on-infinite="loadMore()">

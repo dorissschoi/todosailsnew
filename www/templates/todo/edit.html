@@ -24,8 +24,15 @@
 	  	<label class="item item-input">
 	  		{{'Date' | translate}}: <input type="datetime-local" ng-model="model.dateEnd">
 	  	</label>
+	  	<div class="item item-input" ng-init="selected = model.ownedBy;">
 	  	
-			  	
+	  	<fancy-select-model template-url="templates/user/select.html" 
+				ng-selected="selected" 
+				ng-model="userlist" 
+				label="username" 
+				title="Select users">
+		</fancy-select-model>
+		</div>	  	
 	</div>	    	
   </ion-content>
 

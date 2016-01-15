@@ -26,6 +26,8 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			save: ->			
 				$scope.model.$save().then =>
 					$location.url "/todo/weekList?ownedBy=me"		
+		$scope.$on 'selectuser', (event, item) ->
+			$scope.model.ownedBy = item
 										
 	.filter 'todosFilter', ->
 		(todos, search) ->
