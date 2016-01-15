@@ -18,9 +18,11 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			delete: (item) ->
 				collection.remove item				
 
-	.controller 'TodoCtrl', ($scope, model, $location) ->
+	.controller 'TodoCtrl', ($scope, model, $location, userlist) ->
 		_.extend $scope,
 			model: model
+			userlist: userlist
+			selected: userlist.models[0]
 			save: ->			
 				$scope.model.$save().then =>
 					$location.url "/todo/weekList?ownedBy=me"		
@@ -35,3 +37,11 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 		 		else	
 		 			todo.task.indexOf(search) > -1 
 	
+	.filter 'UserSearchFilter', ->
+		(collection, search) ->
+			if search
+				return _.filter collection, (item) ->
+					r = new RegExp(search, 'i')
+					r.test(item.username()) 
+			else
+				return collection

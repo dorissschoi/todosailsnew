@@ -1,6 +1,6 @@
 env = require './env.coffee'
 
-angular.module 'starter', ['ionic', 'util.auth', 'starter.controller', 'starter.model', 'http-auth-interceptor', 'ngTagEditor', 'ActiveRecord', 'ngTouch', 'ngAnimate', 'ionic-datepicker', 'ionic-timepicker', 'pascalprecht.translate', 'locale']
+angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.controller', 'starter.model', 'http-auth-interceptor', 'ngTagEditor', 'ActiveRecord', 'ngTouch', 'ngAnimate', 'ionic-datepicker', 'ionic-timepicker', 'pascalprecht.translate', 'locale']
 	
 	.run (authService) ->
 		authService.login env.oauth2.opts
@@ -27,7 +27,10 @@ angular.module 'starter', ['ionic', 'util.auth', 'starter.controller', 'starter.
 					templateUrl: "templates/todo/create.html"
 					controller: 'TodoCtrl'
 			resolve:
-				resources: 'resources'	
+				resources: 'resources'
+				userlist: (resources) ->
+					ret = new resources.UserList()
+					ret.$fetch()					
 				model: (resources) ->
 					ret = new resources.Todo()				
 	
@@ -42,7 +45,10 @@ angular.module 'starter', ['ionic', 'util.auth', 'starter.controller', 'starter.
 			resolve:
 				id: ($stateParams) ->
 					$stateParams.id
-				resources: 'resources'	
+				resources: 'resources'
+				userlist: (resources) ->
+					ret = new resources.UserList()
+					ret.$fetch()
 				model: (resources, id) ->
 					ret = new resources.Todo({id: id})
 					ret.$fetch()			

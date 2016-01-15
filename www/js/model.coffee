@@ -13,20 +13,32 @@ angular.module 'starter.model', ['PageableAR']
 				if !_.isUndefined(res.dateEnd)
 					res.dateEnd = new Date(res.dateEnd)
 				return res
-			
-			$save: (values, opts) ->
-				if @$hasChanged()
-					super(values, opts)
-				else
-					return new Promise (fulfill, reject) ->
-						fulfill @		
-	
+
 		# TodoList
 		class TodoList extends pageableAR.PageableCollection
 
 			model: Todo
 			
 			$urlRoot: "/api/todo/"
+
+		class User extends pageableAR.Model
+			$idAttribute: 'username'
+			
+			$urlRoot: "/api/user/"
+			
+			_me = null
+			
+			@me: ->
+				_me ?= new User username: 'me'
+		
+		# UserList
+		class UserList extends pageableAR.PageableCollection
+
+			model: User
+			
+			$urlRoot: "/api/user/"		
 					
 		Todo:		Todo
 		TodoList:	TodoList
+		User:		User
+		UserList:	UserList

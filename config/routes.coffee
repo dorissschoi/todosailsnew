@@ -4,5 +4,4 @@ module.exports =
 			controller:		'TodoController'
 			action:			'find'
 			sort:			
-				dateEnd:	'asc'
-			
+				dateEnd:	'asc'													

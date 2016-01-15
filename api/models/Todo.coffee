@@ -28,11 +28,11 @@ module.exports =
 			defaultsTo: null
 
 		createdBy:
-			type: 'string'
+			model: 'user'
 			required:	true
 
 		ownedBy:
-			type: 'string'
+			model: 'user'
 			required:	true
 				  
 	afterCreate: (values, cb) ->

@@ -1,8 +1,6 @@
 actionUtil = require 'sails/lib/hooks/blueprints/actionUtil'
 
 module.exports = (req, res, next) ->
-	
-	if req.query.ownedBy == 'me'
-		req.query.ownedBy = req.user.username
-		
+	if actionUtil.requirePk(req) == 'me'
+		req.options.id = req.user.username
 	next()

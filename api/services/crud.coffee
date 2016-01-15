@@ -46,7 +46,6 @@ module.exports =
 					fulfill
 						count:		data[0]
 						results:	data[1]
-						username:	req.user.username
 				.catch reject
 				
 	_findOrCreate: (req, Model, cond, data) ->

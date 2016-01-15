@@ -1,15 +1,10 @@
 <ion-view>
-	
-	
 	<ion-header-bar class="item-input-inset" align-title="left">
 	    <button class="button ion-close-round" ui-sref="app.list"></button>
 	    <h1 class="title" style="text-align:center">{{'addtask' | translate}}</h1>
 		<button class="button button-clear button-positive" ng-click="save()">OK</button>	        
-	
 	</ion-header-bar>
-	
 	<ion-content>
-
 		<div class="list">
 			<label class="item item-input">
 				<input type="text" placeholder="{{'Project' | translate}}" name="Project" ng-model="model.project" >
@@ -27,6 +22,10 @@
 				{{'Date' | translate}}: <input type="datetime-local" name="dateEnd" ng-model="model.dateEnd" >
 			</label>
 			
+			
+			<fancy-select-model template-url="templates/user/select.html" ng-selected="selected" ng-model="userlist" label="username" title="Select users">
+			</fancy-select-model>
+				
 		</div>
 		
 	</ion-content>
