@@ -34,7 +34,6 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 				model: (resources) ->
 					ret = new resources.Todo()				
 	
-		# edit #	
 		$stateProvider.state 'app.editTodo',
 			url: "/todo/edit/:id"
 			cache: false
@@ -53,7 +52,6 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 					ret = new resources.Todo({id: id})
 					ret.$fetch()			
 		
-		# list #
 		$stateProvider.state 'app.list',
 			url: "/todo/weekList?ownedBy"
 			cache: false

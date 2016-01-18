@@ -27,5 +27,6 @@
 	"Date":			"到期日",
 	"Close":		"關閉",
 	"SetDate":		"設定日期",
-	"SetTime":		"設定時間"	
+	"SetTime":		"設定時間",
+	"Assign":		"分配"	
 }

@@ -1,9 +1,8 @@
-path = '/todo'
 agent = require 'https-proxy-agent'
 
 module.exports =
-	path:			path
-	url:			"https://mob.myvnc.com/todouat"
+	hookTimeout:	400000
+	
 	port:			8009
 
 	oauth2:

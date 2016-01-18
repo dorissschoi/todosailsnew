@@ -13,7 +13,6 @@ module.exports =
 	imUrl: () ->
 		"https://mob.myvnc.com/im"
 	serverUrl: (path = @path) ->
-		#"http://localhost:3000/#{path}"
 		#"http://localhost:1337/#{path}"
 		"http://localhost:1337"
 	path: 'todo'		

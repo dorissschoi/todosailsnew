@@ -1,16 +1,36 @@
 # Todo
-
-# API
+Mark todo list app. When user create a task, a notification message will be sent to user's IM account. 
+# Server API
+# todo
 ```
-get /api/todo - list todo, option parameter 'ownedBy'
+get /api/todo - list all user todo task
+get /api/todo?ownedBy=username - read task of the specified username
+get /api/todo?ownedBy=me - read task of current login user
+post /api/todo - create todo task
+put /api/todo/:id - update task of the specified id
+delete /api/todo/:id - delete task of the specified id
+```
+# user
+```
+get /api/user - list all user 
 ```
 # Configuration
 
+
+*   git clone https://github.com/dorissschoi/todosailsnew.git
+*   cd todosailsnew
+*   npm install && bower install
+*   update environment variables in config/env/development.coffee for server
 ```
-git clone https://github.com/dorissschoi/todosailsnew.git
-cd todosailsnew
-npm install && bower install
-node_modules/.bin/gulp
-sails lift --dev
+port: 3000
+connections:
+    mongo:
+        driver:     'mongodb'
+        host:       'localhost'
+        port:       27017
+        user:       'todosailsrw'
+        password:   'password'
+        database:   'todosails'
 ```
-update environment variables in config/env/development.coffee for server
+*   node_modules/.bin/gulp
+*   sails lift --dev
