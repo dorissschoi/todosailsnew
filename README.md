@@ -32,5 +32,9 @@ connections:
         password:   'password'
         database:   'todosails'
 ```
+*	update environment variables in www/js/env.cofffee for client
+```
+client_id:      'todoSailsDEVAuth'
+```
 *   node_modules/.bin/gulp
 *   sails lift --dev
