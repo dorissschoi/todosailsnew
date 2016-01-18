@@ -7,7 +7,7 @@ module.exports =
 			findOne:	['isAuth']			
 			create: 	['isAuth', 'setCreatedBy' , 'setOwner']
 			update: 	['isAuth', 'isOwnedBy']
-			destroy: 	['isAuth', 'isOwnedBy']
+			destroy: 	['isAuth', 'isCreatedBy']
 		UserController:
 			'*':		false
 			find:		true
