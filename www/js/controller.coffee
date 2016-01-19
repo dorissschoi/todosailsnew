@@ -16,7 +16,13 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 				$location.url "/todo/edit/#{item.id}"		
 				
 			delete: (item) ->
-				collection.remove item				
+				collection.remove item
+				
+			loadMore: ->
+				collection.$fetch()
+					.then ->
+						$scope.$broadcast('scroll.infiniteScrollComplete')
+					.catch alert								
 
 	.controller 'TodoCtrl', ($scope, model, $location, userlist) ->
 		_.extend $scope,
