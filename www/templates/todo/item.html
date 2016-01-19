@@ -3,6 +3,9 @@
 		<ion-item ng-repeat="model in collection.models"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
 			<div class='row'>
 					<div class='col'>
+						{{model.project}}
+					</div>
+					<div class='col'>
 						{{model.task}}
 					</div>
 					<div class='col'>
