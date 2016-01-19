@@ -11,7 +11,8 @@ angular.module 'starter.model', ['PageableAR']
 			
 			$parse: (res, opts) ->
 				if !_.isUndefined(res.dateEnd)
-					res.dateEnd = new Date(res.dateEnd)
+					if !_.isNull(res.dateEnd)
+						res.dateEnd = new Date(res.dateEnd)
 				return res
 
 		# TodoList
