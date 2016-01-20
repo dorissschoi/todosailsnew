@@ -73,9 +73,6 @@ span.input-label {
 	width: 100px;
 }
 
-.mylistfilter {
-	top: 0px;
-}
 
 /* util.auth */
 .scroll {
@@ -95,4 +92,11 @@ iframe {
 	width: 100%;
 	border-radius: 4px; 
 }
+
+.listview {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
     			

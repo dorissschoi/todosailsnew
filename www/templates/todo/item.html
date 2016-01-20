@@ -2,16 +2,16 @@
 	<ion-list>
 		<ion-item ng-repeat="model in collection.models"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
 			<div class='row'>
-					<div class='col'>
+					<div class='col listview'>
 						{{model.project}}
 					</div>
-					<div class='col'>
+					<div class='col listview'>
 						{{model.task}}
 					</div>
-					<div class='col'>
+					<div class='col listview'>
 						{{model.dateEnd | date: 'dd - MMMM - yyyy'}}
 					</div>
-					<div class='col'>
+					<div class='col listview'>
 						{{model.ownedBy.username}}
 					</div>
 										

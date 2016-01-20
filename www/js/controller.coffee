@@ -8,7 +8,7 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 		$scope.env = env
 		$scope.navigator = navigator
 
-	.controller 'ListCtrl', ($rootScope, $stateParams, $scope, collection, $location) ->
+	.controller 'ListCtrl', ($rootScope, $stateParams, $scope, collection, $location, ownedBy) ->
 		_.extend $scope,
 			collection: collection
 			
@@ -19,7 +19,7 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 				collection.remove item
 				
 			loadMore: ->
-				collection.$fetch()
+				collection.$fetch({params: {ownedBy: ownedBy}})
 					.then ->
 						$scope.$broadcast('scroll.infiniteScrollComplete')
 					.catch alert								
