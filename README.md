@@ -34,7 +34,7 @@ connections:
 ```
 *	update environment variables in www/js/env.cofffee for client
 ```
-client_id:      'todoSailsDEVAuth'
+client_id:      'todoDEV'
 ```
 *   node_modules/.bin/gulp
 *   sails lift --dev

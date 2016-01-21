@@ -28,5 +28,6 @@
 	"Close":		"關閉",
 	"SetDate":		"設定日期",
 	"SetTime":		"設定時間",
-	"Assign":		"分配"	
+	"Assign":		"分配",
+	"completed":	"已完成"
 }

@@ -93,10 +93,14 @@ iframe {
 	border-radius: 4px; 
 }
 
+/* todo list view */
 .listview {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis; 
 }
-
+/* todod completed field checkbox */
+label.item.item-checkbox.ng-valid {
+    border: 0px;
+}
     			

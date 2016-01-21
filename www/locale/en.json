@@ -28,5 +28,6 @@
 	"Close":			"Close",
 	"SetDate":			"SetDate",
 	"SetTime":			"SetTime",
-	"Assign":			"Assign"		
+	"Assign":			"Assign",
+	"completed":		"Completed"		
 }
