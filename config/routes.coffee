@@ -3,5 +3,4 @@ module.exports =
 		'GET /api/todo':
 			controller:		'TodoController'
 			action:			'find'
-			sort:			
-				dateEnd:	'asc'													
+												

@@ -29,5 +29,6 @@
 	"SetDate":		"設定日期",
 	"SetTime":		"設定時間",
 	"Assign":		"分配",
-	"completed":	"已完成"
+	"completed":	"已完成",
+	"progress":		"進展"
 }

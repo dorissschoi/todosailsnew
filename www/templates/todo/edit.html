@@ -32,7 +32,12 @@
 		</div>
 		<label class="item item-input">
 			{{'completed' | translate}}:<ion-checkbox ng-model="model.completed"></ion-checkbox>
-		</label> 			  	
+		</label> 
+		<div class="item range range-positive">{{'progress' | translate}}
+   			<i class="icon ion-ios-sunny-outline"></i>
+   			<input type="range" name="volume" min="0" max="100" ng-model="model.progress">
+   			<i class="icon ion-ios-sunny"></i>
+  		</div> 			  	
 	</div>	    	
   </ion-content>
 </ion-view>

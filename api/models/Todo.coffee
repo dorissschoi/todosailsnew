@@ -34,6 +34,10 @@ module.exports =
 		ownedBy:
 			model: 'user'
 			required:	true
+		
+		progress:
+			type: 'integer'
+			defaultsTo:	0	 	
 				  
 	afterCreate: (values, cb) ->
 		MsgService.sendMsg(values)

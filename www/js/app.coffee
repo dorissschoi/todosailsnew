@@ -53,7 +53,7 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 					ret.$fetch()			
 		
 		$stateProvider.state 'app.list',
-			url: "/todo/weekList?ownedBy"
+			url: "/todo/weekList?ownedBy&sort"
 			cache: false
 			views:
 				'menuContent':
@@ -62,11 +62,12 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 			resolve:
 				ownedBy: ($stateParams) ->
 					return $stateParams.ownedBy
-							
+				sortBy: ($stateParams) ->
+					return $stateParams.sort			
 				resources: 'resources'	
-				collection: (resources, ownedBy) ->
+				collection: (resources, ownedBy, sortBy) ->
 					ret = new resources.TodoList()
-					ret.$fetch({params: {ownedBy: ownedBy}})
+					ret.$fetch({params: {ownedBy: ownedBy, sort: sortBy}})
 		
 		$urlRouterProvider.otherwise('/todo/weekList?ownedBy=me')				
 		

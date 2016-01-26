@@ -19,7 +19,7 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 				collection.remove item
 				
 			loadMore: ->
-				collection.$fetch({params: {ownedBy: ownedBy}})
+				collection.$fetch({params: {ownedBy: ownedBy, sort: sortBy}})
 					.then ->
 						$scope.$broadcast('scroll.infiniteScrollComplete')
 					.catch alert								

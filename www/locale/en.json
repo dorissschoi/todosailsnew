@@ -29,5 +29,6 @@
 	"SetDate":			"SetDate",
 	"SetTime":			"SetTime",
 	"Assign":			"Assign",
-	"completed":		"Completed"		
+	"completed":		"Completed",
+	"progress":			"Progress"		
 }
