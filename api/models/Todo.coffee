@@ -19,13 +19,17 @@ module.exports =
 		notes:
 			type: 'string'
 
-		completed:
-			type: 'boolean'
-			defaultsTo: false
+		dateStart:
+			type: 'datetime'
+			defaultsTo: null			
 
 		dateEnd:
 			type: 'datetime'
 			defaultsTo: null
+			
+		dateExpect:
+			type: 'datetime'
+			defaultsTo: null			
 
 		createdBy:
 			model: 'user'

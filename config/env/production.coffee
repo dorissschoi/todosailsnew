@@ -12,6 +12,8 @@ module.exports =
 		
 	
 
+
+
 	promise:
 		timeout:	10000 # ms
 
@@ -44,5 +46,7 @@ module.exports =
 			domain:	'mob.myvnc.com'
 		adminjid:	"todoadmin@mob.myvnc.com"
 		sendmsg:	true #dev not send
-	
+
+	log:
+		level: 'silly'	
 			

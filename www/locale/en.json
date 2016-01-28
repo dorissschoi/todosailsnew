@@ -24,11 +24,14 @@
 	"Location":			"Location",
 	"Notes":			"Notes",
 	"Time":				"Time",
-	"Date":				"Date",
+	"dateend":			"Date end",
 	"Close":			"Close",
 	"SetDate":			"SetDate",
 	"SetTime":			"SetTime",
 	"Assign":			"Assign",
 	"completed":		"Completed",
-	"progress":			"Progress"		
+	"progress":			"Progress",
+	"dateexpect":		"Date expect",
+	"datestart":		"Date start"
+			
 }

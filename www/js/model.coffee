@@ -10,9 +10,15 @@ angular.module 'starter.model', ['PageableAR']
 			$urlRoot: "api/todo/"
 			
 			$parse: (res, opts) ->
+				if !_.isUndefined(res.dateStart)
+					if !_.isNull(res.dateStart)
+						res.dateStart = new Date(res.dateStart)
 				if !_.isUndefined(res.dateEnd)
 					if !_.isNull(res.dateEnd)
 						res.dateEnd = new Date(res.dateEnd)
+				if !_.isUndefined(res.dateExpect)
+					if !_.isNull(res.dateExpect)
+						res.dateExpect = new Date(res.dateExpect)						
 				return res
 
 		# TodoList
