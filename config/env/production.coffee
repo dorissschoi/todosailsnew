@@ -48,5 +48,5 @@ module.exports =
 		sendmsg:	true #dev not send
 
 	log:
-		level: 'silly'	
+		level: 'info'	
 			

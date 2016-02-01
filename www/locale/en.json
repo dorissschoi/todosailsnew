@@ -3,6 +3,7 @@
     "compledlist":		"Completed list",
     "tasklist":			"Task list",
     "addtask":			"Create task",
+    "alltasklist":		"All task",
     "edittask":			"Edit task",
     "readtask":			"Read task",
     "save":				"Save",
