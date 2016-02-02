@@ -1,10 +1,9 @@
-
-	<div class="row bar-subheader">
+	<div class="row bar-subheader header">
 	<div class="col">{{'Project' | translate}}
 		<a ng-click="order('project desc')" ui-sref="app.list({ sort: 'project desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('project asc')" ui-sref="app.list({ sort: 'project asc' })" class="icon ion-arrow-up-b"></a>	
 	</div>
-	<div class="col">{{'TaskName' | translate}}
+	<div class="col col-30">{{'TaskName' | translate}}
 	 
 		<a ng-click="order('task desc')" ui-sref="app.list({ sort: 'task desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('task asc')" ui-sref="app.list({ sort: 'task asc' })" class="icon ion-arrow-up-b"></a>
@@ -17,16 +16,17 @@
 	</div>
 	
 	</div>
+	
 <ion-content class="has-subheader">	
 	<ion-list>	
 		<ion-item ng-repeat="model in collection.models"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
-			<div class='row'>
-				<div class='col listview'>{{model.project}}</div>
-				<div class='col listview'>{{model.task}}</div>
-				<div class='col listview'>{{model.progress}}%</div>
-				<div class='col listview'>{{model.dateExpect | date: 'dd-MMM-yyyy'}}</div>
-				<div class='col listview'>{{model.ownedBy.username}}</div>
-										
+			
+			<div class="row">
+			  <div class="col">{{model.project}}</div>
+			  <div class="col col-30">{{model.task}}</div>
+			  <div class="col">{{model.progress}}%</div>
+			  <div class="col">{{model.dateExpect | date: 'dd-MMM-yyyy'}}</div>
+			  <div class="col">{{model.ownedBy.username}}</div>
 			</div>
 			<ion-option-button class="button button-positive icon-left ion-edit" on-tap="$event.stopPropagation(); edit(model);">Edit</ion-option-button>
 			<ion-option-button class="button button-assertive icon-left ion-trash-b" on-tap="$event.stopPropagation(); delete(model);">Delete</ion-option-button>
