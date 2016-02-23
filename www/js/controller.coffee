@@ -45,7 +45,7 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 						else
 							$location.url "/todo/weekList?ownedBy=me&sort="+ $rootScope.sort
 					.catch (err) ->
-						alert {data:{error: err.data}}					
+						alert {data:{error: "Not authorized to edit."}}					
 		$scope.$on 'selectuser', (event, item) ->
 			$scope.model.ownedBy = item
 										
