@@ -25,14 +25,14 @@
 	"Location":			"Location",
 	"Notes":			"Notes",
 	"Time":				"Time",
-	"dateend":			"Date end",
 	"Close":			"Close",
 	"SetDate":			"SetDate",
 	"SetTime":			"SetTime",
-	"Assign":			"Assign",
+	"Assign":			"Assigned to",
 	"completed":		"Completed",
 	"progress":			"Progress",
-	"dateexpect":		"Date expect",
-	"datestart":		"Date start"
+	"dateexpect":		"Due date",
+	"datestart":		"Start date",
+	"dateend":			"End date"
 			
 }

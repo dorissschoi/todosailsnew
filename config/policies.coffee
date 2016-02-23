@@ -6,8 +6,8 @@ module.exports =
 			find:		['isAuth', 'todo/resolveMe']	
 			findOne:	['isAuth']			
 			create: 	['isAuth', 'setCreatedBy' , 'setOwner']
-			update: 	['isAuth', 'isOwnedBy']
-			destroy: 	['isAuth', 'isCreatedBy']
+			update: 	['isAuth', 'canEdit']
+			destroy: 	['isAuth', 'canDestroy']
 		UserController:
 			'*':		false
 			find:		true

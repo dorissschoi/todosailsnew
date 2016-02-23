@@ -10,11 +10,7 @@ module.exports =
 	platform: ->
 		if @isNative() then 'mobile' else 'browser'
 	authUrl:	'https://mob.myvnc.com'
-	imUrl: () ->
-		"https://mob.myvnc.com/im"
-	serverUrl: (path = @path) ->
-		#"http://localhost:1337/#{path}"
-		"http://localhost:1337"
+	
 	path: 'todo'		
 	oauth2:
 		authUrl: "#{@authUrl}/org/oauth2/authorize/"

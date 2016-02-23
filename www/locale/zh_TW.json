@@ -25,7 +25,6 @@
 	"Location":		"地點",
 	"Notes":		"備註",
 	"Time":			"時間",
-	"dateend":		"到期日期",
 	"Close":		"關閉",
 	"SetDate":		"設定日期",
 	"SetTime":		"設定時間",
@@ -33,5 +32,6 @@
 	"completed":	"已完成",
 	"progress":		"進展",
 	"dateexpect":	"預期日期",
-	"datestart":	"開始日期"
+	"datestart":	"開始日期",
+	"dateend":		"完成日期"
 }

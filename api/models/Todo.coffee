@@ -26,7 +26,11 @@ module.exports =
 		dateEnd:
 			type: 'datetime'
 			defaultsTo: null
-			
+
+		dateExpStart:
+			type: 'datetime'
+			defaultsTo: null	
+						
 		dateExpect:
 			type: 'datetime'
 			defaultsTo: null			
@@ -41,9 +45,26 @@ module.exports =
 		
 		progress:
 			type: 'integer'
-			defaultsTo:	0	 	
-				  
+			defaultsTo:	0
+		
+		ownerDel:
+			type: 'boolean'
+			defaultsTo: true
+
 	afterCreate: (values, cb) ->
 		MsgService.sendMsg(values)
 
-		return cb null, values  
+		return cb null, values 
+		
+	beforeCreate: (values, cb) ->
+		if (((_.isUndefined(values.dateEnd)) || (_.isNull(values.dateEnd))) && values.progress == 100)
+			values.dateEnd = new Date()
+
+		return cb null, values
+									  
+	beforeUpdate: (values, cb) ->
+		if (((_.isUndefined(values.dateEnd)) || (_.isNull(values.dateEnd))) && values.progress == 100)
+			values.dateEnd = new Date()
+
+		return cb null, values 
+			 

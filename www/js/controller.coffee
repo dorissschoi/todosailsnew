@@ -38,11 +38,14 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			userlist: userlist
 			selected: userlist.models[0]
 			save: ->			
-				$scope.model.$save().then =>
-					if _.isUndefined($rootScope.sort)
-						$location.url "/todo/weekList?ownedBy=me&sort=project asc"
-					else
-						$location.url "/todo/weekList?ownedBy=me&sort="+ $rootScope.sort			
+				$scope.model.$save()
+					.then ->
+						if _.isUndefined($rootScope.sort)
+							$location.url "/todo/weekList?ownedBy=me&sort=project asc"
+						else
+							$location.url "/todo/weekList?ownedBy=me&sort="+ $rootScope.sort
+					.catch (err) ->
+						alert {data:{error: err.data}}					
 		$scope.$on 'selectuser', (event, item) ->
 			$scope.model.ownedBy = item
 										

@@ -98,6 +98,7 @@ iframe {
     white-space: nowrap; 
     overflow: hidden;
     text-overflow: ellipsis; 
+    display: inline-block;
 }
 /* todo list view header*/
 a.icon.ion-arrow-down-b {
@@ -111,8 +112,11 @@ div.header {
 }
 
 /* todo completed field checkbox */
-label.item.item-checkbox.ng-valid {
-    border: 0px;
+input.todoCheckbox {
+	top: 5px;
+	height: 20px;
+	width: 20px;
+	position: relative;
 }
 /* todo progress field */
 .todoprogress{

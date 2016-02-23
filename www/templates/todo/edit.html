@@ -2,7 +2,7 @@
   <ion-header-bar>
     	<button class="button button-icon button-clear ion-navicon" menu-toggle="left"></button>
     	<h1 class="title">{{'edittask' | translate}}</h1>
-    	<button class="button button-clear button-positive" ng-click="save()">{{'save' | translate}}</button>
+    	<button ng-if="model.task" class="button button-clear button-positive" ng-click="save()">{{'save' | translate}}</button>
   </ion-header-bar>
   <ion-content >
 	<div class="list">
@@ -14,9 +14,6 @@
 	  	</label>
 	  	<label class="item item-input">
 	  		{{'Notes' | translate}}: <input type="text" ng-model="model.notes">
-	  	</label>
-	  	<label class="item item-input">
-	  		{{'Location' | translate}}: <input type="text" ng-model="model.location">
 	  	</label>
 	  	<label class="item item-input">
 	  		<div>{{'datestart' | translate}}: </div><div><input type="datetime-local" ng-model="model.dateStart"></div>
@@ -36,11 +33,12 @@
 					title="Select users">
 			</fancy-select-model>
 		</div>
-		<div class="item range range-positive todoprogress">{{'progress' | translate}}
-   			<i class="icon ion-ios-sunny-outline"></i>
-   			<input type="range" name="volume" min="0" max="100" ng-model="model.progress">
-   			<i class="icon ion-ios-sunny"></i>
-  		</div> 			  	
+
+  		<div class="item">
+			<span>{{'progress' | translate}}(%): </span>
+			<input type="checkbox" class="todoCheckbox" ng-model="model.progress"
+					ng-true-value="100" ng-false-value="0">
+		</div>   	  	
 	</div>	    	
   </ion-content>
 </ion-view>

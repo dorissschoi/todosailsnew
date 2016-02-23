@@ -1,16 +1,23 @@
 	<div class="row bar-subheader header">
-	<div class="col">{{'Project' | translate}}
+	<div class="col col-20">{{'Project' | translate}}
 		<a ng-click="order('project desc')" ui-sref="app.list({ sort: 'project desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('project asc')" ui-sref="app.list({ sort: 'project asc' })" class="icon ion-arrow-up-b"></a>	
 	</div>
-	<div class="col col-30">{{'TaskName' | translate}}
+	<div class="col col-40">{{'TaskName' | translate}}
 	 
 		<a ng-click="order('task desc')" ui-sref="app.list({ sort: 'task desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('task asc')" ui-sref="app.list({ sort: 'task asc' })" class="icon ion-arrow-up-b"></a>
 	</div>
-	<div class="col">{{'progress' | translate}}</div>
-	<div class="col">{{'dateexpect' | translate}}</div>
-	<div class="col">{{'Assign' | translate}}
+	<div class="col  col-10 ">{{'progress' | translate}}</div>
+	<div class="col  col-10 ">{{'datestart' | translate}}
+		<a ng-click="order('datestart desc')" ui-sref="app.list({ sort: 'datestart desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('datestart asc')" ui-sref="app.list({ sort: 'datestart asc' })" class="icon ion-arrow-up-b"></a>
+	</div>
+	<div class="col  col-10 ">{{'dateend' | translate}}
+		<a ng-click="order('dateend desc')" ui-sref="app.list({ sort: 'dateend desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('dateend asc')" ui-sref="app.list({ sort: 'dateend asc' })" class="icon ion-arrow-up-b"></a>
+	</div>
+	<div class="col  col-10 ">{{'Assign' | translate}}
 		<a ng-click="order('ownedBy desc')" ui-sref="app.list({ sort: 'ownedBy desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('ownedBy asc')" ui-sref="app.list({ sort: 'ownedBy asc' })" class="icon ion-arrow-up-b"></a>	
 	</div>
@@ -22,11 +29,12 @@
 		<ion-item ng-repeat="model in collection.models"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
 			
 			<div class="row">
-			  <div class="col listview">{{model.project}}</div>
-			  <div class="col col-30 listview">{{model.task}}</div>
-			  <div class="col listview">{{model.progress}}%</div>
-			  <div class="col listview">{{model.dateExpect | date: 'dd-MMM-yyyy'}}</div>
-			  <div class="col listview">{{model.ownedBy.username}}</div>
+			  <div class="col col-20 listview">{{model.project}}</div>
+			  <div class="col col-40 listview">{{model.task}}</div>
+			  <div class="col col-10 listview">{{model.progress}}%</div>
+			  <div class="col col-10 listview">{{model.dateStart | date: 'dd-MMM-yyyy'}}</div>
+			  <div class="col col-10 listview">{{model.dateEnd | date: 'dd-MMM-yyyy'}}</div>
+			  <div class="col col-10 listview">{{model.ownedBy.username}}</div>
 			</div>
 			<ion-option-button class="button button-positive icon-left ion-edit" on-tap="$event.stopPropagation(); edit(model);">Edit</ion-option-button>
 			<ion-option-button class="button button-assertive icon-left ion-trash-b" on-tap="$event.stopPropagation(); delete(model);">Delete</ion-option-button>
