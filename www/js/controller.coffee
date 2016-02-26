@@ -8,7 +8,7 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 		$scope.env = env
 		$scope.navigator = navigator
 
-	.controller 'ListCtrl', ($rootScope, $stateParams, $scope, collection, $location, ownedBy, defaultSortField) ->
+	.controller 'ListCtrl', ($rootScope, $stateParams, $scope, collection, $location, ownedBy, sortBy, defaultSortField) ->
 		_.extend $scope,
 			collection: collection
 			
@@ -32,12 +32,12 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 						$scope.$broadcast('scroll.infiniteScrollComplete')
 					.catch alert								
 
-	.controller 'TodoCtrl', ($rootScope, $scope, model, $location, userlist) ->
+	.controller 'TodoCtrl', ($rootScope, $scope, model, $location, userlist, me) ->
 		_.extend $scope,
 			model: model
 			userlist: userlist
-			selected: userlist.models[0]
-			save: ->			
+			selected: _.findWhere(userlist.models,{username: me.username})
+			save: ->
 				$scope.model.$save()
 					.then ->
 						if _.isUndefined($rootScope.sort)

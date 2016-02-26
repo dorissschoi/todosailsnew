@@ -30,7 +30,9 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 				resources: 'resources'
 				userlist: (resources) ->
 					ret = new resources.UserList()
-					ret.$fetch()					
+					ret.$fetch()
+				me: (resources) ->
+					resources.User.me().$fetch()							
 				model: (resources) ->
 					ret = new resources.Todo()				
 	
@@ -48,6 +50,8 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 				userlist: (resources) ->
 					ret = new resources.UserList()
 					ret.$fetch()
+				me: (resources) ->
+					resources.User.me().$fetch()
 				model: (resources, id) ->
 					ret = new resources.Todo({id: id})
 					ret.$fetch()			

@@ -12,7 +12,8 @@ delete /api/todo/:id - delete task of the specified id
 ```
 # user
 ```
-get /api/user - list all user 
+get /api/user - list all user
+get /api/user/me - list login user 
 ```
 # Configuration
 
@@ -36,5 +37,5 @@ connections:
 ```
 client_id:      'todoDEV'
 ```
-*   node_modules/.bin/gulp
+*   node_modules/.bin/gulp --prod=prod
 *   sails lift --dev
