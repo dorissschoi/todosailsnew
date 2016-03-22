@@ -33,5 +33,6 @@
 	"progress":		"進展",
 	"dateexpect":	"預期日期",
 	"datestart":	"開始日期",
-	"dateend":		"完成日期"
+	"dateend":		"完成日期",
+	"createdBy":	"設定"
 }

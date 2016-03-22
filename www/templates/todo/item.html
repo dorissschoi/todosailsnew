@@ -1,5 +1,11 @@
-	<div class="row bar-subheader header">
-	<div class="col col-20">{{'Project' | translate}}
+<div>
+	<label class="item item-input">
+		<i class="icon ion-search placeholder-icon"></i>
+		<input type="search" placeholder="Search" ng-model="searchTodos">
+	</label>
+</div>
+<div class="row bar-subheader header">
+	<div class="col col-15">{{'Project' | translate}}
 		<a ng-click="order('project desc')" ui-sref="app.list({ sort: 'project desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('project asc')" ui-sref="app.list({ sort: 'project asc' })" class="icon ion-arrow-up-b"></a>	
 	</div>
@@ -8,7 +14,7 @@
 		<a ng-click="order('task desc')" ui-sref="app.list({ sort: 'task desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('task asc')" ui-sref="app.list({ sort: 'task asc' })" class="icon ion-arrow-up-b"></a>
 	</div>
-	<div class="col  col-10 ">{{'progress' | translate}}
+	<div class="col  col-5 ">{{'progress' | translate}}
 		<a ng-click="order('progress desc')" ui-sref="app.list({ sort: 'progress desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('progress asc')" ui-sref="app.list({ sort: 'progress asc' })" class="icon ion-arrow-up-b"></a>
 	</div>
@@ -24,20 +30,25 @@
 		<a ng-click="order('ownedBy desc')" ui-sref="app.list({ sort: 'ownedBy desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('ownedBy asc')" ui-sref="app.list({ sort: 'ownedBy asc' })" class="icon ion-arrow-up-b"></a>	
 	</div>
-	
+	<div class="col  col-10 ">{{'createdBy' | translate}}
+		<a ng-click="order('createdBy desc')" ui-sref="app.list({ sort: 'createdBy desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('createdBy asc')" ui-sref="app.list({ sort: 'createdBy asc' })" class="icon ion-arrow-up-b"></a>	
 	</div>
+		
+</div>
 	
 <ion-content class="has-subheader">	
 	<ion-list>	
-		<ion-item ng-repeat="model in collection.models"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
+		<ion-item ng-repeat="model in collection.models | todosFilter:searchTodos:collection.state.skip:collection.state.count:collection.state.limit"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
 			
 			<div class="row">
-			  <div class="col col-20 listview">{{model.project}}</div>
+			  <div class="col col-15 listview">{{model.project}}</div>
 			  <div class="col col-40 listview">{{model.task}}</div>
-			  <div class="col col-10 listview">{{model.progress}}%</div>
+			  <div class="col col-5 listview">{{model.progress}}%</div>
 			  <div class="col col-10 listview">{{model.dateStart | date: 'dd-MMM-yyyy'}}</div>
 			  <div class="col col-10 listview">{{model.dateEnd | date: 'dd-MMM-yyyy'}}</div>
 			  <div class="col col-10 listview">{{model.ownedBy.username}}</div>
+			  <div class="col col-10 listview">{{model.createdBy.username}}</div>
 			</div>
 			<ion-option-button class="button button-positive icon-left ion-edit" on-tap="$event.stopPropagation(); edit(model);">Edit</ion-option-button>
 			<ion-option-button class="button button-assertive icon-left ion-trash-b" on-tap="$event.stopPropagation(); delete(model);">Delete</ion-option-button>

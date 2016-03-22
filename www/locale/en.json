@@ -33,6 +33,7 @@
 	"progress":			"Progress",
 	"dateexpect":		"Due date",
 	"datestart":		"Start date",
-	"dateend":			"End date"
+	"dateend":			"End date",
+	"createdBy":		"Created By"
 			
 }

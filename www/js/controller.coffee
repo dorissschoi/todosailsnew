@@ -48,17 +48,21 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 						alert {data:{error: "Not authorized to edit."}}					
 		$scope.$on 'selectuser', (event, item) ->
 			$scope.model.ownedBy = item
-										
-	.filter 'todosFilter', ->
-		(todos, search) ->
-		 	return _.filter todos, (todo) ->
-		 		if _.isUndefined(search)
-		 			true
-		 		else if _.isEmpty(search)
-		 			true
-		 		else	
-		 			todo.task.indexOf(search) > -1 
-	
+
+	.filter 'todosFilter', ($ionicScrollDelegate)->
+		(collection, search, skip, count, limit) ->
+			if search
+				s = search.replace(/\s+/g, '|')
+				a = _.filter collection, (item) ->
+					r = new RegExp(s, 'i')
+					r.test(item.project) or r.test(item.task) or r.test(item.createdBy.username) or r.test(item.ownedBy.username)
+				if a.length < limit 
+					if skip < count
+						$ionicScrollDelegate.scrollBottom()
+				return a					
+			else
+				return collection
+
 	.filter 'UserSearchFilter', ->
 		(collection, search) ->
 			if search
