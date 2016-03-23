@@ -127,5 +127,7 @@ nbproject
 /www/lib
 /www/js/*.js
 /www/js/env.coffee
+/www/js/config/production.coffee
+/config/env/production.coffee
 /*.orig
 

@@ -22,6 +22,7 @@ get /api/user/me - list login user
 *   cd todosailsnew
 *   npm install && bower install
 *   update environment variables in config/env/development.coffee for server
+*   update environment variables in config/env/production.coffee for server
 ```
 port: 3000
 connections:
@@ -29,11 +30,12 @@ connections:
         driver:     'mongodb'
         host:       'localhost'
         port:       27017
-        user:       'todosailsrw'
-        password:   'password'
-        database:   'todosails'
+        user:       ''
+        password:   ''
+        database:   ''
 ```
-*	update environment variables in www/js/env.cofffee for client
+*	update environment variables in www/js/config/development.coffee for development
+*	update environment variables in www/js/config/production.coffee for production
 ```
 client_id:      'todoDEV'
 ```

@@ -28,17 +28,17 @@ module.exports =
 			host:		'localhost'
 			port:		27017
 			user:		'todosailsrw'
-			password:	'pass1234'
+			password:	'password'
 			database:	'todosails'	
 		
 	im:
 		url: 		"https://mob.myvnc.com/im.app/api/msg"
 		client:
 			id:		'todomsgDEVAuth'
-			secret: 'pass1234'
+			secret: 'password'
 		user:
 			id: 	'todoadmin'
-			secret: 'pass1234'
+			secret: 'password'
 		scope:  	[ "https://mob.myvnc.com/org/users", "https://mob.myvnc.com/mobile"]
 		txt:		"one new task"
 		digesttxt:	"Overdue task"

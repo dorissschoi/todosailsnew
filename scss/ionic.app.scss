@@ -108,10 +108,13 @@ a.icon.ion-arrow-up-b {
     color: black;
 }
 div.header {
-	padding: 16px 49px 16px 16px;
+	padding: 16px 16px 16px 16px;
 }
 .has-subheader {
 	top: 158px;
+}
+.item-complex .item-content, .item-radio .item-content {
+	padding: 16px 16px 16px 16px;
 }
 
 /* todo completed field checkbox */
