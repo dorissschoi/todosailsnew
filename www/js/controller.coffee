@@ -53,13 +53,15 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 		(collection, search, skip, count, limit) ->
 			if search
 				s = search.replace(/\s+/g, '|')
-				a = _.filter collection, (item) ->
+				return _.filter collection, (item) ->
 					r = new RegExp(s, 'i')
 					r.test(item.project) or r.test(item.task) or r.test(item.createdBy.username) or r.test(item.ownedBy.username)
+				###
 				if a.length < limit 
 					if skip < count
 						$ionicScrollDelegate.scrollBottom()
-				return a					
+				return a
+				###					
 			else
 				return collection
 
