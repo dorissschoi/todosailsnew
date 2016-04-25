@@ -3,6 +3,7 @@ FROM node:4-slim
 WORKDIR /usr/src/app
 
 ADD https://github.com/dorissschoi/todosailsnew/archive/master.tar.gz /tmp
+VOLUME /etc/ssl/certs /usr/local/share/ca-certificates
 
 RUN apt-get update && \  
 	apt-get -y install git && \
