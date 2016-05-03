@@ -13,7 +13,7 @@ RUN apt-get update && \
 	npm install bower coffee-script -g && \
 	npm install && \
 	bower install --allow-root && \
-	node_modules/.bin/gulp --prod=prod && \
+	node_modules/.bin/gulp && \
 	ln -s /usr/local/bin/coffee /usr/bin/coffee 
 
 ENTRYPOINT npm start 
