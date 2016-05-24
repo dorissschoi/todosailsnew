@@ -25,11 +25,8 @@ module.exports =
 		mongo:
 			adapter:	'sails-mongo'
 			driver:		'mongodb'
-			host:		'localhost'
-			port:		27017
-			user:		'todosailsrw'
-			password:	'password'
-			database:	'todosails'	
+			#url: 'mongodb://username:password@db2,db3,db4/dbname?replicaSet=rs0' #prd 
+			url: 'mongodb://todosailsrw:pass1234@localhost/todosails' #dev
 		
 	im:
 		url: 		"https://mob.myvnc.com/im.app/api/msg"
