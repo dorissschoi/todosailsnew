@@ -1,8 +1,4 @@
-todo-mongo:
-  hostname: mongo
-  container_name: mongo
-  image: mongo
-  
+
 todo-server:
   hostname: todo-server
   container_name: todo-server
@@ -16,3 +12,10 @@ todo-server:
   ports:
     - 1337:1337
 
+todo-mongo:
+  hostname: mongo
+  container_name: mongo
+  image: mongo
+  volumes:
+    - ./data:/data/db
+  command: --smallfiles --rest --auth  
