@@ -18,4 +18,4 @@ todo-mongo:
   image: mongo
   volumes:
     - ./data:/data/db
-  command: --smallfiles --rest --auth  
+  command: --smallfiles --auth  
