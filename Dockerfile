@@ -5,7 +5,7 @@ WORKDIR /usr/src/app
 ADD https://github.com/dorissschoi/todosailsnew/archive/master.tar.gz /tmp
 
 RUN apt-get update && \  
-	apt-get -y install git && \
+	apt-get -y install git python python-pip && \
 	apt-get clean && \
 	tar --strip-components=1 -xzf /tmp/master.tar.gz && \
 	rm /tmp/master.tar.gz && \ 
