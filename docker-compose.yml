@@ -9,14 +9,14 @@ services:
       - ./config/env/production.coffee:/usr/src/app/config/env/development.coffee 
       - /usr/local/share/ca-certificates/mobile.ogcio.hksarg.crt:/usr/src/app/ca-certificates/mobile.ogcio.hksarg.crt      
       
-    depends_on:
-      - todo-mongo
+    links:
+      - todo-mongo:mongo
     ports:
       - 1337:1337
 
   todo-mongo:
-    hostname: mongo
-    container_name: mongo
+    hostname: todo-mongo
+    container_name: todo-mongo
     image: mongo
     volumes:
       - ./data:/data/db
