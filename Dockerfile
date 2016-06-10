@@ -16,4 +16,4 @@ RUN apt-get update && \
 	node_modules/.bin/gulp && \
 	ln -s /usr/local/bin/coffee /usr/bin/coffee 
 
-ENTRYPOINT npm start --prod
+ENTRYPOINT npm start
