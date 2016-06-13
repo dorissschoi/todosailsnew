@@ -1,23 +1,22 @@
 version: '2'
 services:
-  todo:
-    hostname: todo
-    container_name: todo
-    image: dorissschoi/todosailsnew
-    volumes:
-      - /etc/ssl/certs/mobile.ogcio.hksarg.pem:/etc/ssl/certs/mobile.ogcio.hksarg.pem
-      - ./config/env/production.coffee:/usr/src/app/config/env/development.coffee 
-      - /usr/local/share/ca-certificates/mobile.ogcio.hksarg.crt:/usr/src/app/ca-certificates/mobile.ogcio.hksarg.crt      
-      
-    links:
-      - todo-mongo:mongo
-    ports:
-      - 1337:1337
-
-  todo-mongo:
-    hostname: todo-mongo
-    container_name: todo-mongo
+  todo_mongo:
     image: mongo
+    container_name: todo_mongo
+    hostname: todo_mongo
+    ports:
+      - 27017
     volumes:
-      - ./data:/data/db
-    command: --smallfiles --auth  
+      - /home/myroot/docker.shell/todo/data:/data/db
+    command: mongod --directoryperdb 
+    
+  todo:
+    depends_on:
+      - todo_mongo
+    image: dorissschoi/todosailsnew
+    container_name: todo
+    hostname: todo
+    volumes:
+      - /home/myroot/docker.shell/todo/conf/production.coffee:/usr/src/app/config/env/production.coffee
+      - /etc/ssl/certs:/etc/ssl/certs
+      - /usr/local/share/ca-certificates:/usr/local/share/ca-certificates
