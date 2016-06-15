@@ -16,7 +16,9 @@ services:
     image: dorissschoi/todosailsnew
     container_name: todo
     hostname: todo
+    ports:
+      - 1337
     volumes:
-      - /home/myroot/docker.shell/todo/conf/production.coffee:/usr/src/app/config/env/production.coffee
+      - ${COMPOSEROOT}/todo/conf/server.coffee:/usr/src/app/config/env/production.coffee
       - /etc/ssl/certs:/etc/ssl/certs
       - /usr/local/share/ca-certificates:/usr/local/share/ca-certificates
