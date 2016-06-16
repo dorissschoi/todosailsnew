@@ -10,6 +10,8 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 
 	.controller 'ListCtrl', ($rootScope, $stateParams, $scope, collection, $location, ownedBy, sortBy, defaultSortField) ->
 		_.extend $scope,
+			ownedBy: ownedBy
+			
 			collection: collection
 			
 			edit: (item) ->
