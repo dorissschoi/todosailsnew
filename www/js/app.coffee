@@ -68,11 +68,6 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 					return $stateParams.ownedBy
 				sortBy: ($stateParams) ->
 					return $stateParams.sort
-				defaultSortField: ($stateParams) ->
-					if !_.isUndefined($stateParams.sort)
-						return $stateParams.sort
-					else 
-						return 'project asc'					
 				resources: 'resources'	
 				collection: (resources, ownedBy, sortBy) ->
 					ret = new resources.TodoList()

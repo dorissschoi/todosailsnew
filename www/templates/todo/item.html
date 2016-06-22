@@ -6,33 +6,33 @@
 </div>
 <div class="row bar-subheader header">
 	<div class="col col-10">{{'Project' | translate}}
-		<a ng-click="order('project desc')" ui-sref="app.list({ sort: 'project desc' })" class="icon ion-arrow-down-b"></a>
-		<a ng-click="order('project asc')" ui-sref="app.list({ sort: 'project asc' })" class="icon ion-arrow-up-b"></a>	
+		<a ng-click="reload('project desc')" class="icon ion-arrow-down-b pointer"></a>
+		<a ng-click="reload('project asc')"  class="icon ion-arrow-up-b pointer"></a>	
 	</div>
 	<div class="col col-40">{{'TaskName' | translate}}
 	 
-		<a ng-click="order('task desc')" ui-sref="app.list({ sort: 'task desc' })" class="icon ion-arrow-down-b"></a>
-		<a ng-click="order('task asc')" ui-sref="app.list({ sort: 'task asc' })" class="icon ion-arrow-up-b"></a>
+		<a ng-click="reload('task desc')" class="icon ion-arrow-down-b pointer"></a>
+		<a ng-click="reload('task asc')"  class="icon ion-arrow-up-b pointer"></a>
 	</div>
 	<div class="col col-10">{{'progress' | translate}}
-		<a ng-click="order('progress desc')" ui-sref="app.list({ sort: 'progress desc' })" class="icon ion-arrow-down-b"></a>
-		<a ng-click="order('progress asc')" ui-sref="app.list({ sort: 'progress asc' })" class="icon ion-arrow-up-b"></a>
+		<a ng-click="reload('progress desc')" class="icon ion-arrow-down-b pointer"></a>
+		<a ng-click="reload('progress asc')"  class="icon ion-arrow-up-b pointer"></a>
 	</div>
 	<div class="col col-10">{{'datestart' | translate}}
-		<a ng-click="order('dateStart desc')" ui-sref="app.list({ sort: 'dateStart desc' })" class="icon ion-arrow-down-b"></a>
-		<a ng-click="order('dateStart asc')" ui-sref="app.list({ sort: 'dateStart asc' })" class="icon ion-arrow-up-b"></a>
+		<a ng-click="reload('dateStart desc')" class="icon ion-arrow-down-b pointer"></a>
+		<a ng-click="reload('dateStart asc')"  class="icon ion-arrow-up-b pointer"></a>
 	</div>
 	<div class="col col-10">{{'dateend' | translate}}
-		<a ng-click="order('dateEnd desc')" ui-sref="app.list({ sort: 'dateEnd desc' })" class="icon ion-arrow-down-b"></a>
-		<a ng-click="order('dateEnd asc')" ui-sref="app.list({ sort: 'dateEnd asc' })" class="icon ion-arrow-up-b"></a>
+		<a ng-click="reload('dateEnd desc')" class="icon ion-arrow-down-b pointer"></a>
+		<a ng-click="reload('dateEnd asc')"  class="icon ion-arrow-up-b pointer"></a>
 	</div>
 	<div class="col col-10">{{'Assign' | translate}}
-		<a ng-click="order('ownedBy desc')" ui-sref="app.list({ sort: 'ownedBy desc' })" class="icon ion-arrow-down-b"></a>
-		<a ng-click="order('ownedBy asc')" ui-sref="app.list({ sort: 'ownedBy asc' })" class="icon ion-arrow-up-b"></a>	
+		<a ng-click="reload('ownedBy desc')" class="icon ion-arrow-down-b pointer"></a>
+		<a ng-click="reload('ownedBy asc')"  class="icon ion-arrow-up-b pointer"></a>	
 	</div>
 	<div class="col col-10">{{'createdBy' | translate}}
-		<a ng-click="order('createdBy desc')" ui-sref="app.list({ sort: 'createdBy desc' })" class="icon ion-arrow-down-b"></a>
-		<a ng-click="order('createdBy asc')" ui-sref="app.list({ sort: 'createdBy asc' })" class="icon ion-arrow-up-b"></a>	
+		<a ng-click="reload('createdBy desc')" class="icon ion-arrow-down-b pointer"></a>
+		<a ng-click="reload('createdBy asc')"  class="icon ion-arrow-up-b pointer"></a>	
 	</div>
 		
 </div>
