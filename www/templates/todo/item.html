@@ -21,7 +21,8 @@
 		</p>
 	  	<p>{{'dateend' | translate}}</p>
 	</div>
-	<div class="col col-25" ng-if="ownedBy != 'me'">{{'Assign' | translate}}
+	<div class="col col-25" ng-if="ownedBy != 'me'">
+		<a ng-click="neworder('createdBy')" class="pointer">{{'Assign' | translate}}</a>
 		<a ng-click="order('ownedBy desc')" ui-sref="app.list({ sort: 'ownedBy desc' })" class="icon ion-arrow-down-b"></a>
 		<a ng-click="order('ownedBy asc')" ui-sref="app.list({ sort: 'ownedBy asc' })" class="icon ion-arrow-up-b"></a>	
 	</div>

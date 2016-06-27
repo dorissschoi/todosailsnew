@@ -42,7 +42,8 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 					else 
 						sortBy =
 							"#{field}":0
-				collection.$refetch({params: {ownedBy: ownedBy, sort: sortBy }}) 
+				#collection.$refetch({params: {ownedBy: ownedBy, sort: sortBy }}) 
+				$location.url "/todo/weekList?ownedBy=me&sort=#{JSON.stringify sortBy}"
 				
 			loadMore: ->
 				if _.isUndefined(sortBy)
