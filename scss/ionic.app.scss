@@ -99,6 +99,11 @@ iframe {
     overflow: hidden;
     text-overflow: ellipsis; 
     display: inline-block;
+    margin: -20px 0px 0px 0px;
+}
+.todolist
+{
+	height: 74px;
 }
 /* todo list view header*/
 a.icon.ion-arrow-down-b {
@@ -108,7 +113,7 @@ a.icon.ion-arrow-up-b {
     color: black;
 }
 div.header {
-	padding: 16px 16px 16px 16px;
+	padding: 0px 16px 16px 16px;
 }
 .has-subheader {
 	top: 158px;
