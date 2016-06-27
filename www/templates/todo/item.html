@@ -5,42 +5,51 @@
 	</label>
 </div>
 <div class="row bar-subheader header">
-	<div class="col col-50">
-		<a ng-click="reorder('task')" class="pointer">
-			<div>{{'TaskName' | translate}}</div>
-			<div>{{'Project' | translate}}</div>
-			<div>{{'progress' | translate}}</div>
-		</a>
+	<div class="col col-10">{{'Project' | translate}}
+		<a ng-click="order('project desc')" ui-sref="app.list({ sort: 'project desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('project asc')" ui-sref="app.list({ sort: 'project asc' })" class="icon ion-arrow-up-b"></a>	
 	</div>
-	<div class="col col-25 ">
-		<a ng-click="reorder('dateStart')" class="pointer">
-		<div>{{'datestart' | translate}}</div>
-		<div>{{'dateend' | translate}}</div>
-		</a>
+	<div class="col col-40">{{'TaskName' | translate}}
+	 
+		<a ng-click="order('task desc')" ui-sref="app.list({ sort: 'task desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('task asc')" ui-sref="app.list({ sort: 'task asc' })" class="icon ion-arrow-up-b"></a>
 	</div>
-	<div ng-if="ownedBy != 'me'" class="col col-25 ">
-		<a ng-click="reorder('ownedBy')" class="pointer">{{'Assign' | translate}}</a>
+	<div class="col col-10">{{'progress' | translate}}
+		<a ng-click="order('progress desc')" ui-sref="app.list({ sort: 'progress desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('progress asc')" ui-sref="app.list({ sort: 'progress asc' })" class="icon ion-arrow-up-b"></a>
 	</div>
-	<div ng-if="ownedBy == 'me'" class="col col-25 ">
-		<a ng-click="reorder('createdBy')" class="pointer">{{'createdBy' | translate}}</a>
+	<div class="col col-10">{{'datestart' | translate}}
+		<a ng-click="order('dateStart desc')" ui-sref="app.list({ sort: 'dateStart desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('dateStart asc')" ui-sref="app.list({ sort: 'dateStart asc' })" class="icon ion-arrow-up-b"></a>
 	</div>
+	<div class="col col-10">{{'dateend' | translate}}
+		<a ng-click="order('dateEnd desc')" ui-sref="app.list({ sort: 'dateEnd desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('dateEnd asc')" ui-sref="app.list({ sort: 'dateEnd asc' })" class="icon ion-arrow-up-b"></a>
+	</div>
+	<div class="col col-10">{{'Assign' | translate}}
+		<a ng-click="order('ownedBy desc')" ui-sref="app.list({ sort: 'ownedBy desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('ownedBy asc')" ui-sref="app.list({ sort: 'ownedBy asc' })" class="icon ion-arrow-up-b"></a>	
+	</div>
+	<div class="col col-10">{{'createdBy' | translate}}
+		<a ng-click="order('createdBy desc')" ui-sref="app.list({ sort: 'createdBy desc' })" class="icon ion-arrow-down-b"></a>
+		<a ng-click="order('createdBy asc')" ui-sref="app.list({ sort: 'createdBy asc' })" class="icon ion-arrow-up-b"></a>	
+	</div>
+		
 </div>
 	
 <ion-content class="has-subheader">	
 	<ion-list>	
-		<ion-item class="todolist" ng-repeat="model in collection.models | todosFilter:searchTodos:collection.state.skip:collection.state.count:collection.state.limit"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
-			  <div class="col col-50 listview">
-			  	<h2>{{model.task}}</h2>
-			  	<p>{{model.project}} </p>
-			  	<div ng-if="!model.project"></br></div>
-			  	<p>{{model.progress}}%</p>
-			  </div>
-			  <div class="col col-25 listview list-data">
-			  	<p>{{model.dateStart | date: 'd.M.yyyy'}}</p><div ng-if="!model.dateStart"></br></div>
-			  	<p>{{model.dateEnd | date: 'd.M.yyyy'}}</p>
-			  </div>
-			  <div ng-if="ownedBy != 'me'" class="col col-25 listview list-data">{{model.ownedBy.username}}</div>
-			  <div ng-if="ownedBy == 'me'" class="col col-25 listview list-data">{{model.createdBy.username}}</div>
+		<ion-item ng-repeat="model in collection.models | todosFilter:searchTodos:collection.state.skip:collection.state.count:collection.state.limit"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
+			
+			<div class="row">
+			  <div class="col col-10 listview">{{model.project}}</div>
+			  <div class="col col-40 listview">{{model.task}}</div>
+			  <div class="col col-10 listview">{{model.progress}}%</div>
+			  <div class="col col-10 listview">{{model.dateStart | date: 'dd-MMM-yyyy'}}</div>
+			  <div class="col col-10 listview">{{model.dateEnd | date: 'dd-MMM-yyyy'}}</div>
+			  <div class="col col-10 listview">{{model.ownedBy.username}}</div>
+			  <div class="col col-10 listview">{{model.createdBy.username}}</div>
+			</div>
 			<ion-option-button class="button button-positive icon-left ion-edit" on-tap="$event.stopPropagation(); edit(model);">Edit</ion-option-button>
 			<ion-option-button class="button button-assertive icon-left ion-trash-b" on-tap="$event.stopPropagation(); delete(model);">Delete</ion-option-button>
 		</ion-item>

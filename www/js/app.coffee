@@ -68,11 +68,16 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 					return $stateParams.ownedBy
 				sortBy: ($stateParams) ->
 					return $stateParams.sort
+				defaultSortField: ($stateParams) ->
+					if !_.isUndefined($stateParams.sort)
+						return $stateParams.sort
+					else 
+						return 'project asc'					
 				resources: 'resources'	
 				collection: (resources, ownedBy, sortBy) ->
 					ret = new resources.TodoList()
 					ret.$fetch({params: {ownedBy: ownedBy, sort: sortBy}})
 		
-		$urlRouterProvider.otherwise('/todo/weekList?ownedBy=me&sort=%7B%22task%22:1%7D')
+		$urlRouterProvider.otherwise('/todo/weekList?ownedBy=me&sort=project asc')				
 		
 		

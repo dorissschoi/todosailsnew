@@ -8,11 +8,9 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 		$scope.env = env
 		$scope.navigator = navigator
 
-	.controller 'ListCtrl', ($rootScope, $stateParams, $scope, collection, $location, ownedBy, sortBy) ->
+	.controller 'ListCtrl', ($rootScope, $stateParams, $scope, collection, $location, ownedBy, sortBy, defaultSortField) ->
 		_.extend $scope,
 			ownedBy: ownedBy
-			
-			sortBy: sortBy
 			
 			collection: collection
 			
@@ -22,27 +20,15 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			delete: (item) ->
 				collection.remove item
 			
-			reorder: (field) ->
-				if field == "task"
-					if _.values(sortBy)[0] ==0
-						sortBy = 
-							"task":1
-							"project":1
-					else
-						sortBy = 
-							"task":0
-							"project":0
-				else		
-					if _.values(sortBy)[0] ==0
-						sortBy = 
-							"#{field}":1
-					else 
-						sortBy =
-							"#{field}":0			
-				$location.url "/todo/weekList?ownedBy=me&sort=#{JSON.stringify sortBy}" 
-				#collection.$refetch({params: {ownedBy: ownedBy, sort: sortBy }}) 	 
-			
+			order: (field) ->
+				$rootScope.sort = field 
+
 			loadMore: ->
+				if _.isUndefined(sortBy)
+					if _.isUndefined($rootScope.sort)
+						sortBy = defaultSortField
+					else
+						sortBy = $scope.sort	
 				collection.$fetch({params: {ownedBy: ownedBy, sort: sortBy}})
 					.then ->
 						$scope.$broadcast('scroll.infiniteScrollComplete')
@@ -56,7 +42,10 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			save: ->
 				$scope.model.$save()
 					.then ->
-						$location.url "/todo/weekList?ownedBy=me&sort=%7B%22task%22:1%7D"
+						if _.isUndefined($rootScope.sort)
+							$location.url "/todo/weekList?ownedBy=me&sort=project asc"
+						else
+							$location.url "/todo/weekList?ownedBy=me&sort="+ $rootScope.sort
 					.catch (err) ->
 						alert {data:{error: "Not authorized to edit."}}					
 		$scope.$on 'selectuser', (event, item) ->

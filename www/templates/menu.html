@@ -11,10 +11,10 @@
         <ion-item nav-clear menu-close ui-sref="app.createTodo">
           {{'addtask' | translate}}
         </ion-item>
-        <ion-item nav-clear menu-close href="#/todo/weekList?ownedBy=me&sort=%7B%22task%22:1%7D">
+        <ion-item nav-clear menu-close href="#/todo/weekList?ownedBy=me&sort=project asc">
           {{'mytask' | translate}}
         </ion-item>
-        <ion-item nav-clear menu-close href="#/todo/weekList?sort=%7B%22task%22:1%7D">
+        <ion-item nav-clear menu-close href="#/todo/weekList?sort=project asc">
           {{'alltask' | translate}}
         </ion-item>
 	    <ion-item nav-clear menu-close ng-if="env.isNative()" ng-click="navigator.app.exitApp()">
