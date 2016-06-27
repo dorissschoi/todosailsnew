@@ -12,6 +12,8 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 		_.extend $scope,
 			ownedBy: ownedBy
 			
+			sortBy: sortBy
+			
 			collection: collection
 			
 			edit: (item) ->
@@ -22,7 +24,26 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			
 			order: (field) ->
 				$rootScope.sort = field 
-
+			
+			neworder: (field) ->
+				if !field.localeCompare("task")
+					if _.values(sortBy)[0] ==0
+						sortBy = 
+							"task":1
+							"project":1
+					else
+						sortBy = 
+							"task":0
+							"project":0
+				else		
+					if _.values(sortBy)[0] ==0
+						sortBy = 
+							"#{field}":1
+					else 
+						sortBy =
+							"#{field}":0
+				collection.$refetch({params: {ownedBy: ownedBy, sort: sortBy }}) 
+				
 			loadMore: ->
 				if _.isUndefined(sortBy)
 					if _.isUndefined($rootScope.sort)
