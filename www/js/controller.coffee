@@ -22,10 +22,25 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			delete: (item) ->
 				collection.remove item
 			
-			reload: (field) ->
-				sortBy = field
-				collection.$refetch({params: {ownedBy: ownedBy, sort: sortBy}}) 	
-
+			reorder: (field) ->
+				if field == "task"
+					if _.values(sortBy)[0] ==0
+						sortBy = 
+							"task":1
+							"project":1
+					else
+						sortBy = 
+							"task":0
+							"project":0
+				else		
+					if _.values(sortBy)[0] ==0
+						sortBy = 
+							"#{field}":1
+					else 
+						sortBy =
+							"#{field}":0
+				collection.$refetch({params: {ownedBy: ownedBy, sort: sortBy }}) 	 
+			
 			loadMore: ->
 				collection.$fetch({params: {ownedBy: ownedBy, sort: sortBy}})
 					.then ->
@@ -40,7 +55,7 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			save: ->
 				$scope.model.$save()
 					.then ->
-						$location.url "/todo/weekList?ownedBy=me&sort=project asc"
+						$location.url "/todo/weekList?ownedBy=me&sort=%7B%22task%22:1%7D"
 					.catch (err) ->
 						alert {data:{error: "Not authorized to edit."}}					
 		$scope.$on 'selectuser', (event, item) ->

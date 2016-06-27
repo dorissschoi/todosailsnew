@@ -23,32 +23,11 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 $select-color:	#bbd8ff;
 
-.item-avatar > img:first-child, .item-avatar .item-content > img:first-child {
-	border-radius: 0;
-}
-
 .selected {
 	background-color: $select-color;
 	
 	.item-content {
 		background-color: $select-color;
-	}
-}
-
-.filelist h2 {
-	display: table;
-	
-	> span, > .tag-editor {
-		display: table-cell;
-	}
-	
-	.tag-editor {
-		border: none;
-		background-color: inherit;
-		
-		.tag-input {
-			background-color: inherit;
-		}
 	}
 }
 
@@ -82,16 +61,7 @@ iframe {
 	width: 100%;
 	height: 100%;	
 }
-.item-avatar i:first-child, .item-avatar .item-img {
-	position: absolute;
-	top: 15px;
-	left: 15px;
-	font-size: 36px;
-	max-width: 40px;
-	max-height: 40px;
-	width: 100%;
-	border-radius: 4px; 
-}
+
 
 /* todo list view */
 .listview {
@@ -99,6 +69,8 @@ iframe {
     overflow: hidden;
     text-overflow: ellipsis; 
     display: inline-block;
+	margin: -20px 0px 0px 0px;
+	vertical-align: top;
 }
 /* todo list view header*/
 a.icon.ion-arrow-down-b {
@@ -108,13 +80,21 @@ a.icon.ion-arrow-up-b {
     color: black;
 }
 div.header {
-	padding: 16px 16px 16px 16px;
+	padding: 0px 16px 16px 16px;
 }
 .has-subheader {
 	top: 158px;
 }
 .item-complex .item-content, .item-radio .item-content {
 	padding: 16px 16px 16px 16px;
+}
+.todolist{	
+	display: block;
+	height: 74px;
+}
+
+.list-data{
+	margin-left: -5px;
 }
 .pointer {
     cursor: pointer;
@@ -127,7 +107,4 @@ input.todoCheckbox {
 	width: 20px;
 	position: relative;
 }
-/* todo progress field */
-.todoprogress{
-	padding: 6px 0 5px 16px;
-}    			
+    			

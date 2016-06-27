@@ -5,51 +5,42 @@
 	</label>
 </div>
 <div class="row bar-subheader header">
-	<div class="col col-10">{{'Project' | translate}}
-		<a ng-click="reload('project desc')" class="icon ion-arrow-down-b pointer"></a>
-		<a ng-click="reload('project asc')"  class="icon ion-arrow-up-b pointer"></a>	
+	<div class="col col-50">
+		<a ng-click="reorder('task')" class="pointer">
+			<div>{{'TaskName' | translate}}</div>
+			<div>{{'Project' | translate}}</div>
+			<div>{{'progress' | translate}}</div>
+		</a>
 	</div>
-	<div class="col col-40">{{'TaskName' | translate}}
-	 
-		<a ng-click="reload('task desc')" class="icon ion-arrow-down-b pointer"></a>
-		<a ng-click="reload('task asc')"  class="icon ion-arrow-up-b pointer"></a>
+	<div class="col col-25 ">
+		<a ng-click="reorder('dateStart')" class="pointer">
+		<div>{{'datestart' | translate}}</div>
+		<div>{{'dateend' | translate}}</div>
+		</a>
 	</div>
-	<div class="col col-10">{{'progress' | translate}}
-		<a ng-click="reload('progress desc')" class="icon ion-arrow-down-b pointer"></a>
-		<a ng-click="reload('progress asc')"  class="icon ion-arrow-up-b pointer"></a>
+	<div ng-if="ownedBy != 'me'" class="col col-25 ">
+		<a ng-click="reorder('ownedBy')" class="pointer">{{'Assign' | translate}}</a>
 	</div>
-	<div class="col col-10">{{'datestart' | translate}}
-		<a ng-click="reload('dateStart desc')" class="icon ion-arrow-down-b pointer"></a>
-		<a ng-click="reload('dateStart asc')"  class="icon ion-arrow-up-b pointer"></a>
+	<div ng-if="ownedBy == 'me'" class="col col-25 ">
+		<a ng-click="reorder('createdBy')" class="pointer">{{'createdBy' | translate}}</a>
 	</div>
-	<div class="col col-10">{{'dateend' | translate}}
-		<a ng-click="reload('dateEnd desc')" class="icon ion-arrow-down-b pointer"></a>
-		<a ng-click="reload('dateEnd asc')"  class="icon ion-arrow-up-b pointer"></a>
-	</div>
-	<div class="col col-10">{{'Assign' | translate}}
-		<a ng-click="reload('ownedBy desc')" class="icon ion-arrow-down-b pointer"></a>
-		<a ng-click="reload('ownedBy asc')"  class="icon ion-arrow-up-b pointer"></a>	
-	</div>
-	<div class="col col-10">{{'createdBy' | translate}}
-		<a ng-click="reload('createdBy desc')" class="icon ion-arrow-down-b pointer"></a>
-		<a ng-click="reload('createdBy asc')"  class="icon ion-arrow-up-b pointer"></a>	
-	</div>
-		
 </div>
 	
 <ion-content class="has-subheader">	
 	<ion-list>	
-		<ion-item ng-repeat="model in collection.models | todosFilter:searchTodos:collection.state.skip:collection.state.count:collection.state.limit"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
-			
-			<div class="row">
-			  <div class="col col-10 listview">{{model.project}}</div>
-			  <div class="col col-40 listview">{{model.task}}</div>
-			  <div class="col col-10 listview">{{model.progress}}%</div>
-			  <div class="col col-10 listview">{{model.dateStart | date: 'dd-MMM-yyyy'}}</div>
-			  <div class="col col-10 listview">{{model.dateEnd | date: 'dd-MMM-yyyy'}}</div>
-			  <div class="col col-10 listview">{{model.ownedBy.username}}</div>
-			  <div class="col col-10 listview">{{model.createdBy.username}}</div>
-			</div>
+		<ion-item class="todolist" ng-repeat="model in collection.models | todosFilter:searchTodos:collection.state.skip:collection.state.count:collection.state.limit"  on-tap="$event.stopPropagation(); read('{{model.id}}');">				
+			  <div class="col col-50 listview">
+			  	<h2>{{model.task}}</h2>
+			  	<p>{{model.project}} </p>
+			  	<div ng-if="!model.project"></br></div>
+			  	<p>{{model.progress}}%</p>
+			  </div>
+			  <div class="col col-25 listview list-data">
+			  	<p>{{model.dateStart | date: 'd.M.yyyy'}}</p><div ng-if="!model.dateStart"></br></div>
+			  	<p>{{model.dateEnd | date: 'd.M.yyyy'}}</p>
+			  </div>
+			  <div ng-if="ownedBy != 'me'" class="col col-25 listview list-data">{{model.ownedBy.username}}</div>
+			  <div ng-if="ownedBy == 'me'" class="col col-25 listview list-data">{{model.createdBy.username}}</div>
 			<ion-option-button class="button button-positive icon-left ion-edit" on-tap="$event.stopPropagation(); edit(model);">Edit</ion-option-button>
 			<ion-option-button class="button button-assertive icon-left ion-trash-b" on-tap="$event.stopPropagation(); delete(model);">Delete</ion-option-button>
 		</ion-item>
