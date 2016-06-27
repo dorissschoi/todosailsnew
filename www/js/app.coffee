@@ -57,7 +57,7 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 					ret.$fetch()			
 		
 		$stateProvider.state 'app.list',
-			url: "/todo/weekList?ownedBy&sort"
+			url: "/todo/weekList?ownedBy&sort&sortOrder"
 			cache: false
 			views:
 				'menuContent':
@@ -68,11 +68,12 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 					return $stateParams.ownedBy
 				sortBy: ($stateParams) ->
 					return $stateParams.sort
-				defaultSortField: ($stateParams) ->
-					if !_.isUndefined($stateParams.sort)
-						return $stateParams.sort
+				sortOrder: ($stateParams) ->
+					if _.isUndefined($stateParams.sortOrder)
+						return 'asc'
 					else 
-						return 'project asc'					
+						return $stateParams.sortOrder	
+					
 				resources: 'resources'	
 				collection: (resources, ownedBy, sortBy) ->
 					ret = new resources.TodoList()
