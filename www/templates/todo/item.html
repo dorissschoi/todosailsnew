@@ -38,9 +38,9 @@
 			  	</p>
 			  </div>
 			  <div class="col col-25 listview">
-			  	<p>{{model.dateStart | date: 'dd-MMM-yyyy'}}</p>
+			  	<p class="tododate">{{model.dateStart | date: 'dd-MM-yyyy'}}</p>
 			  	<div ng-if="!model.dateStart"></br></div>
-			  	<p>{{model.dateEnd | date: 'dd-MMM-yyyy'}}</p>
+			  	<p class="tododate">{{model.dateEnd | date: 'dd-MM-yyyy'}}</p>
 			  </div>
 			</div>
 			<ion-option-button class="button button-positive icon-left ion-edit" on-tap="$event.stopPropagation(); edit(model);">Edit</ion-option-button>

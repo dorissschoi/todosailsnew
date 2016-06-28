@@ -85,10 +85,13 @@ iframe {
 	margin: -5px 0px 0px 0px;
 }
 .todoleftheader {
-	margin: -6px 6px -6px 5px;
+	margin: -6px 6px -6px -5px;
 }
 .todoitem {
-	margin: -16px -49px -16px -5px;
+	margin: -16px -49px -16px -16px;
+}
+.tododate {
+	margin: 0px -6px 0px -6px;
 }
 .pointer {
 	cursor: pointer;
