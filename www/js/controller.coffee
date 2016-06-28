@@ -26,24 +26,13 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 				$rootScope.sort = field 
 			
 			neworder: (field) ->
-				if !field.localeCompare("task")
-					if _.values(sortBy)[0] ==0
-						sortBy = 
-							"task":1
-							"project":1
-					else
-						sortBy = 
-							"task":0
-							"project":0
-				else		
-					if !sortOrder.localeCompare("asc")
+				if !sortOrder.localeCompare("asc")
 						sortOrder = "desc"
 					else 
 						sortOrder = "asc"
-						
-					sortBy = "#{field} #{sortOrder}"	
+		
+				sortBy = "#{field} #{sortOrder}"	
 				collection.$refetch({params: {ownedBy: ownedBy, sort: sortBy }}) 
-				
 				
 			loadMore: ->
 				collection.$fetch({params: {ownedBy: ownedBy, sort: sortBy}})
@@ -59,7 +48,7 @@ angular.module 'starter.controller', [ 'ionic', 'http-auth-interceptor', 'ngCord
 			save: ->
 				$scope.model.$save()
 					.then ->
-						$location.url "/todo/weekList?ownedBy=me&sort=project asc"
+						$location.url "/todo/weekList?ownedBy=me&sort=project desc"
 					.catch (err) ->
 						alert {data:{error: "Not authorized to edit."}}					
 		$scope.$on 'selectuser', (event, item) ->

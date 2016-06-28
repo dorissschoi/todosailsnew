@@ -79,6 +79,6 @@ angular.module 'starter', ['ngFancySelect', 'ionic', 'util.auth', 'starter.contr
 					ret = new resources.TodoList()
 					ret.$fetch({params: {ownedBy: ownedBy, sort: sortBy}})
 		
-		$urlRouterProvider.otherwise('/todo/weekList?ownedBy=me&sort=project asc')				
+		$urlRouterProvider.otherwise('/todo/weekList?ownedBy=me&sort=project desc')				
 		
 		
