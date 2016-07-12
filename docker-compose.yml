@@ -7,7 +7,7 @@ services:
     ports:
       - 27017
     volumes:
-      - /home/myroot/docker.shell/todo/data:/data/db
+      - ${COMPOSEROOT}/todo/data:/data/db
     command: mongod --directoryperdb 
     
   todo:
